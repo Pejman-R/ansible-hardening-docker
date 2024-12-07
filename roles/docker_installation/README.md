@@ -37,11 +37,12 @@ Author Information
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
 To DO
-  - [ ] install requirments
-  - [ ] add gpg key docker
-  - [ ] add repo docker
+  - [x] install requirments
+  - [x] add gpg key docker
+  - [x] add repo docker
     - [ ] change repo mecasn
   - [ ] install docker
   - [ ] config mirror registry
   - [ ] config live restore
   - [ ] config docker logging
+  - [ ] test
