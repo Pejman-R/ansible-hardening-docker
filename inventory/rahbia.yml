@@ -1,0 +1,8 @@
+myhosts:
+  vars:
+      ansible_user: pejman
+      ansible_port: 8090
+  hosts:
+      rahbia:
+        ansible_host: 192.168.100.71
+
