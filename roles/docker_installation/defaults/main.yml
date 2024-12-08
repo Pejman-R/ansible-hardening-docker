@@ -34,7 +34,7 @@ docker_config:
   proxy:
     enable: false
     http_url: "http://127.0.0.1:8123"
-    https_url: "{{ docker_config.proxy.http_url }}"
+    https_url: "https://127.0.0.1:8123"
     no_proxy_url: "hub.mecan.ir,127.0.0.0/8"
   logging:
     enable: true
