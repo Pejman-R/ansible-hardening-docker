@@ -6,7 +6,7 @@
 
 - name: add apt signing key (debian)
   ansible.builtin.apt_key:
-    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    #id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
     url: "{{ docker_repo.gpg_url }}"
   become: true
 

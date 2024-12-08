@@ -27,8 +27,8 @@ docker_repo:
     stable_enabled: true
     test_enabled: false
     nightly_enabled: false
-  repo_url: https://download.docker.com/linux/
-  gpg_url: https://download.docker.com/linux/ubuntu/gpg
+  repo_url: https://repo.mecan.ir/repository/debian-docker/     # https://download.docker.com/linux/
+  gpg_url: https://repo.mecan.ir/repository/debian-docker/gpg   # https://download.docker.com/linux/ubuntu/gpg
 
 docker_config:
   proxy:
