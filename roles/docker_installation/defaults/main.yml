@@ -1,5 +1,4 @@
 ---
-
 docker_dependencies:
   - acl
   - python3-pip
@@ -11,7 +10,6 @@ docker_dependencies:
   - iproute2
   - gpg
 
-## docker packages
 docker_packages:
   - containerd.io
   - docker-ce
@@ -27,18 +25,18 @@ docker_repo:
     stable_enabled: true
     test_enabled: false
     nightly_enabled: false
-  repo_url: https://repo.mecan.ir/repository/debian-docker/     # https://download.docker.com/linux/
   gpg_url: https://repo.mecan.ir/repository/debian-docker/gpg   # https://download.docker.com/linux/ubuntu/gpg
+  repo_url: https://repo.mecan.ir/repository/debian-docker/     # https://download.docker.com/linux/
 
 docker_config:
   proxy:
     enable: false
     http_url: "http://127.0.0.1:8123"
-    https_url: "https://127.0.0.1:8123"
+    https_url: "http://127.0.0.1:8123"
     no_proxy_url: "hub.mecan.ir,127.0.0.0/8"
   logging:
     enable: true
-    lable: "{{ inventory_hostname }}"
+    labels: "{{ inventory_hostname }}"
     max_file: 5
     max_size: 100M
   mirror_registry:
@@ -50,4 +48,4 @@ docker_config:
   live_restore:
     enable: true
   experimental:
-    enable: true 
+    enable: true
