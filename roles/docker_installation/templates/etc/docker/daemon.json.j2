@@ -1,17 +1,17 @@
 {
     {% if docker_config.proxy.enable == true %}
-    "proxies": {
-        "http-proxy": "{{ docker_config.proxy.http_url }}",
-        "https-proxy": "{{ docker_config.proxy.https_url }}",
-        "no-proxy": "{{ docker_config.proxy.no_proxy_url }}"
-        },
+        "proxies": {
+          "http-proxy": "{{ docker_config.proxy.http_url }}",
+          "https-proxy": "{{ docker_config.proxy.https_url }}",
+          "no-proxy": "{{ docker_config.proxy.no_proxy_url }}"
+          },
     {% endif %}
     {% if docker_config.logging.enable == true %}
-    "log-opts": {
-        "labels": "{{ docker_config.logging.labels }}",
-        "max-file": "{{ docker_config.logging.max_file }}",
-        "max-size": "{{ docker_config.logging.max_size }}"
-        },
+        "log-opts": {
+            "labels": "{{ docker_config.logging.labels }}",
+            "max-file": "{{ docker_config.logging.max_file }}",
+            "max-size": "{{ docker_config.logging.max_size }}"
+            },
     {% endif %}
     {% if docker_config.mirror_registry.enable == true %}
     "registry-mirrors": ["{{ docker_config.mirror_registry.urls }}"],
