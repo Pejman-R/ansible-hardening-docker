@@ -41,10 +41,10 @@ docker_config:
     lable: "{{ inventory_hostname }}"
     max_file: 5
     max_size: 100M
-  mirror_registary:
+  mirror_registry:
     enable: true
     urls: "https://hub.mecan.ir"
-  insecure_registary:
+  insecure_registry:
     enable: true
     urls: "https://test.mecan.ir"
   live_restore:
