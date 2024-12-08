@@ -13,7 +13,7 @@ docker_dependencies:
 
 ## docker packages
 docker_packages:
-  - containerd.io
+  - containerd
   - docker-ce
   - docker-buildx-plugin
   - docker-ce-cli
