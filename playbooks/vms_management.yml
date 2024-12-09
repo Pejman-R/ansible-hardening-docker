@@ -1,0 +1,6 @@
+- name: create and configuration vms on vcenter
+  hosts: all
+  become: true
+  gather_facts: false
+  roles:
+  - vms_management
