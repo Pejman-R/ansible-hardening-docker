@@ -1,40 +1,68 @@
 ---
+- name: Create a VM folder on given datacenter
+  community.vmware.vcenter_folder:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter_name: "{{ dc_name }}"
+    folder_name: "{{ vm_folder }}"
+    folder_type: vm
+    state: present
+  delegate_to: localhost
+
+- name: Find Guest's Folder using name
+  community.vmware.vmware_guest_find:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    name: "{{ vm_folder }}"
+  delegate_to: localhost
+
 - name: Create a virtual machine from a template
   vmware_guest:
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
-    validate_certs: no
-    folder: /testvms
-    name: testvm_2
+    folder: "{{ vm_folder }}"
+    name: "{{ inventory_hostname }}"
     state: poweredon
-    template: template_el7
+    template: "{{ vm_template }}"
     disk:
-    - size_gb: 10
+    - size_gb: "{{ disk_size }}"
       type: thin
-      datastore: g73_datastore
+      datastore: "{{ data store_name }}"
     hardware:
-      memory_mb: 512
-      num_cpus: 6
-      num_cpu_cores_per_socket: 3
-      scsi: paravirtual
-      memory_reservation_lock: True
-      mem_limit: 8096
-      mem_reservation: 4096
-      cpu_limit: 8096
-      cpu_reservation: 4096
-      max_connections: 5
+      memory_mb: "{{ memory_size }}"
+      num_cpus: "{{ cpu_size }}"
+      #num_cpu_cores_per_socket: "{{ cpu_per_socket }}"
+      #max_connections: 5
       hotadd_cpu: True
       hotremove_cpu: True
-      hotadd_memory: False
-      version: 12 # Hardware version of virtual machine
+      hotadd_memory: True
+      #version: 12 # Hardware version of virtual machine
       boot_firmware: "efi"
-    cdrom:
-      type: iso
-      iso_path: "[datastore1] livecd.iso"
     networks:
-    - name: VM Network
-      mac: aa:bb:dd:aa:00:14
-    wait_for_ip_address: yes
+     - name: "{{ network_name }}"
+       ip: "{{ ip_address }}"
+       netmask: "{{ subnet_mask }}"
+       gateway: "{{ gateway_address }}"
+       #domain: my_domain
+       dns_servers:
+       - "{{ dns_server1 }}"
+       - "{{ dns_server2 }}"
+    wait_for_ip_address: True
   delegate_to: localhost
   register: deploy
+
+  - name: Update for system defaults config.
+  community.vmware.vmware_host_auto_start:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ esxi_hostname }}"
+    system_defaults:
+      start_action: powerOn
+      enabled: true
+      start_delay: 10
+    delegate_to: localhost
+
