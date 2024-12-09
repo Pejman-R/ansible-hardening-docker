@@ -54,7 +54,7 @@
   delegate_to: localhost
   register: deploy
 
-  - name: Update for system defaults config.
+- name: Update for system defaults config.
   community.vmware.vmware_host_auto_start:
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
