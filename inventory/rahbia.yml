@@ -7,7 +7,7 @@ myhosts:
         ansible_host: 192.168.100.71
       rahbia-server-test:
         ansible_host: 192.168.100.72
-        ansible_python_interpreter: /usr/bin/python3
+        ansible_python_interpreter: /usr/bin/python3.12
         disk_size: 50
         datastore_name: HDD
         memory_size: 8192
