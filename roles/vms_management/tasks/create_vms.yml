@@ -11,14 +11,6 @@
     state: present
   delegate_to: localhost
 
-- name: Find Guest's Folder using name
-  community.vmware.vmware_guest_find:
-    hostname: "{{ vcenter_hostname }}"
-    username: "{{ vcenter_username }}"
-    password: "{{ vcenter_password }}"
-    validate_certs: no
-    name: "{{ vm_folder }}"
-  delegate_to: localhost
 
 - name: Create a virtual machine from a template
   vmware_guest:
