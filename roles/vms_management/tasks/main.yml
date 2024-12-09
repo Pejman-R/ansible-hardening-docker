@@ -2,7 +2,7 @@
 ---
 # tasks file for vms_management
 - name: setup vms
-  import_tasks: creat_vms.yml
+  import_tasks: create_vms.yml
   tags:
-    - creat_vms
+    - create_vms
     - vms_management
