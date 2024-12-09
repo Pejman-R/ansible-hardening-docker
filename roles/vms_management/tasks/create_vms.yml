@@ -57,8 +57,8 @@
     password: "{{ vcenter_password }}"
     validate_certs: no
     esxi_hostname: "{{ esxi_hostname }}"
+    name: "{{ inventory_hostname }}"
     system_defaults:
-      start_action: powerOn
       enabled: true
       start_delay: 10
     delegate_to: localhost
