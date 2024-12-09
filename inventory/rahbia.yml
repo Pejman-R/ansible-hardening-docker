@@ -6,7 +6,7 @@ myhosts:
       rahbia:
         ansible_host: 192.168.100.71
       rahbia-server-test:
-        disk_size: 50G
+        disk_size: 50
         datastore_name: HDD
         memory_size: 8192
         cpu_size: 4
