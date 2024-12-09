@@ -18,6 +18,7 @@
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
     validate_certs: no
+    datacenter: "{{ dc_name }}"
     folder: "{{ vm_folder }}"
     name: "{{ inventory_hostname }}"
     state: poweredon
