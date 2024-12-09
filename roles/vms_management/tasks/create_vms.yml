@@ -25,7 +25,7 @@
     disk:
     - size_gb: "{{ disk_size }}"
       type: thin
-      datastore: "{{ data_store_name }}"
+      datastore: "{{ datastore_name }}"
     hardware:
       memory_mb: "{{ memory_size }}"
       num_cpus: "{{ cpu_size }}"
