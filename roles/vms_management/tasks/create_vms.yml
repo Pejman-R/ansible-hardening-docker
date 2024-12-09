@@ -59,7 +59,6 @@
     esxi_hostname: "{{ esxi_hostname }}"
     port: 8090
     name: "{{ inventory_hostname }}"
-    ansible_python_interpreter: /usr/local/bin/python3.11
     system_defaults:
       enabled: true
       start_delay: 10
