@@ -4,6 +4,7 @@
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
+    validate_certs: no
     datacenter_name: "{{ dc_name }}"
     folder_name: "{{ vm_folder }}"
     folder_type: vm
@@ -15,6 +16,7 @@
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
+    validate_certs: no
     name: "{{ vm_folder }}"
   delegate_to: localhost
 
@@ -23,6 +25,7 @@
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
+    validate_certs: no
     folder: "{{ vm_folder }}"
     name: "{{ inventory_hostname }}"
     state: poweredon
@@ -59,6 +62,7 @@
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
+    validate_certs: no
     esxi_hostname: "{{ esxi_hostname }}"
     system_defaults:
       start_action: powerOn
