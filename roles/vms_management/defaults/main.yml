@@ -1,8 +1,8 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # defaults file for vms_management
-dc_name: 192.168.100.95
-esxi_hostname: Training
+dc_name: Training
+esxi_hostname: 192.168.100.100
 vm_folder: RahBia-Live-Coding
 inventory_hostname: 
 vm_template: RahBia-Template
