@@ -19,4 +19,9 @@
     label: msdos
     state: present
     part_start: "{{ device_info.partitions[1].end + 1 }}KiB"
-    part_end: "50%"
+    part_end: "100%"
+
+- name: Resize a volume group on top of /dev/sda1 and /dev/sda5.
+  community.general.lvg:
+    vg: vg0.services
+    pvs: /dev/sda1,/dev/sda5
