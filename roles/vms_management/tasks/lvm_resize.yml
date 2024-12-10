@@ -23,5 +23,5 @@
 
 - name: Resize a volume group on top of /dev/sda1 and /dev/sda5.
   community.general.lvg:
-    vg: vg0.services
+    vg: vg0
     pvs: /dev/sda1,/dev/sda5
