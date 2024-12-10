@@ -7,7 +7,7 @@
 - name: read device information /dev/sda
   parted:
     device: /dev/sda
-    init: KiB
+    unit: KiB
   register: device_info
 
 - name: Create a new primary partition for LVM
