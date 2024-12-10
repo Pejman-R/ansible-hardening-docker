@@ -30,10 +30,12 @@
   community.general.lvol:
     vg: vg0
     lv: lv-root
-    size: 20%FREE
+    size: +20%FREE
+    resizefs: True
 
 - name: Resize logical volume root
   community.general.lvol:
     vg: vg0
     lv: lv-var
-    size: 100%FREE
+    size: +100%FREE
+    resizefs: True
