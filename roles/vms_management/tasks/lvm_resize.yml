@@ -19,4 +19,4 @@
     label: msdos
     state: present
     part_start: "{{ device_info.partitions[1].end + 1 }}KiB"
-    part_end: "100%"
+    part_end: "50%"
