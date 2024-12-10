@@ -21,7 +21,7 @@
     part_start: "{{ device_info.partitions[1].end + 1 }}KiB"
     part_end: "100%"
 
-- name: Resize a volume group on top of /dev/sda1 and /dev/sda5.
+- name: Resize a volume group on top of /dev/sda3 and /dev/sda5.
   community.general.lvg:
     vg: vg0
-    pvs: /dev/sda1,/dev/sda5
+    pvs: /dev/sda3,/dev/sda5
