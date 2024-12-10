@@ -4,10 +4,19 @@
     name: parted
     state: present
 
+- name: read device information /dev/sda
+  parted:
+    device: /dev/sda
+    init: KiB
+  register: device_info
+
 - name: Create a new primary partition for LVM
   community.general.parted:
     device: /dev/sda
     number: 3
+    part_type: primary
     flags: [ lvm ]
+    lable: msdos
     state: present
-    part_start: 1GiB
+    part_start: "{{ device_info.partitions[1].end + 1 }}KiB"
+    part_end: "100%"
