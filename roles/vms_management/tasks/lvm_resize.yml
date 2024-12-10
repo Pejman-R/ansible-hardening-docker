@@ -7,7 +7,7 @@
 - name: Create a new primary partition for LVM
   community.general.parted:
     device: /dev/sda
-    number: 5
+    number: 3
     flags: [ lvm ]
     state: present
     part_start: 1GiB
