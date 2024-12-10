@@ -6,3 +6,9 @@
   tags:
     - create_vms
     - vms_management
+
+- name: change disk partotioning
+  import_tasks: lvm_resize.yml
+  tags:
+    - resize_lvm
+    - vms_management
