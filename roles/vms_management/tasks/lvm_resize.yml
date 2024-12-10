@@ -25,3 +25,15 @@
   community.general.lvg:
     vg: vg0
     pvs: /dev/sda3,/dev/sda5
+
+- name: Resize logical volume root
+  community.general.lvol:
+    vg: vg0
+    lv: lv-root
+    size: 20%FREE
+
+- name: Resize logical volume root
+  community.general.lvol:
+    vg: vg0
+    lv: lv-var
+    size: 100%FREE
