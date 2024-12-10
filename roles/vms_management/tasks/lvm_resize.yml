@@ -5,7 +5,7 @@
     state: present
 
 - name: read device information /dev/sda
-  parted:
+  community.general.parted:
     device: /dev/sda
     unit: KiB
   register: device_info
