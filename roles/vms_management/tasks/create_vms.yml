@@ -45,7 +45,7 @@
        #domain: my_domain
        dns_servers:
        - 8.8.8.8
-       - {{ dns_server2 }}
+       - "{{ dns_server2 }}"
     wait_for_ip_address: True
   delegate_to: localhost
   register: deploy
