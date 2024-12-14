@@ -48,6 +48,7 @@
       dns_servers:
         - "{{ dns_server1 }}"
         - "{{ dns_server2 }}"
+      timezone: Asia/Tehran
   delegate_to: localhost
   register: deploy
 
