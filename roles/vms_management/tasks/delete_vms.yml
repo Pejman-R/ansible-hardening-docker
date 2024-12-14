@@ -1,0 +1,21 @@
+---
+- name: Set powerstate of virtual machine to poweroff
+  community.vmware.vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: False
+    name: "{{ inventory_hostname }}"
+    state: poweredoff
+- name: Remove virtual machine from inventory
+  delegate_to: localhost
+  community.vmware.vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    folder: "{{ vm_folder }}"
+    datastore: "{{ datastore_name }}"
+    validate_certs: False
+    name: "{{ inventory_hostname }}"
+    delete_from_inventory: True
+    state: absent
