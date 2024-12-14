@@ -7,8 +7,9 @@
     validate_certs: False
     name: "{{ inventory_hostname }}"
     state: poweredoff
-- name: Remove virtual machine from inventory
   delegate_to: localhost
+
+- name: Remove virtual machine from inventory  
   community.vmware.vmware_guest:
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
@@ -19,3 +20,4 @@
     name: "{{ inventory_hostname }}"
     delete_from_inventory: True
     state: absent
+  delegate_to: localhost
