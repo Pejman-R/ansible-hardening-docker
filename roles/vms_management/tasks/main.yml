@@ -14,7 +14,7 @@
     - vms_management
 
 - name: delete vms
-  import_tasks: lvm_resize.yml
+  import_tasks: delete_vms.yml
   tags:
     - delete_vms
     - vms_management
