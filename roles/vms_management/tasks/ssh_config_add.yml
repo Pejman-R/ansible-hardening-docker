@@ -9,6 +9,7 @@
     proxycommand: "{{ ssh_jump }}"
     strict_host_key_checking: "no"
     state: present
+  throttle: 1
   delegate_to: localhost
   tags:
   - ssh-config-create

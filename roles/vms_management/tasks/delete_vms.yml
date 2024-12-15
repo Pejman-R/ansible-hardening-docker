@@ -35,5 +35,7 @@
     user: "{{ lookup('env','USER') }}"
     host: "{{ inventory_hostname }}"
     state: absent
+  throttle: 1
   delegate_to: localhost
+
   when: confirm_delete.user_input == 'Yes'
