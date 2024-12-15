@@ -1,0 +1,7 @@
+---
+- name: remove a host from the ssh configuration
+  community.general.ssh_config:
+    user: "{{ lookup('env','USER') }}"
+    host: "{{ inventory_hostname }}"
+    state: absent
+  delegate_to: localhost

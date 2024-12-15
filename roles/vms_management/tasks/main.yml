@@ -8,6 +8,14 @@
     - vm_setup
     - vms_management
 
+- name: Add ssh config
+  import_tasks: ssh_config_add.yml
+  tags:
+    - create_vms
+    - vm_setup
+    - create_ssh_config
+    - vms_management
+
 - name: change disk partotioning
   import_tasks: lvm_resize.yml
   tags:
@@ -19,4 +27,10 @@
   import_tasks: delete_vms.yml
   tags:
     - delete_vms
+    - vms_management
+
+- name: delete ssh config
+  import_tasks: ssh_config_delete.yml
+  tags:
+    - delete_ssh
     - vms_management
