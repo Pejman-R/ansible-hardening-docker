@@ -29,8 +29,3 @@
     - delete_vms
     - vms_management
 
-- name: delete ssh config
-  import_tasks: ssh_config_delete.yml
-  tags:
-    - delete_ssh
-    - vms_management
