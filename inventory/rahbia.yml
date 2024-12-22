@@ -3,8 +3,8 @@ myhosts:
     ansible_user: pejman
     ansible_port: 8090
   hosts:
-    rahbia:
-      ansible_host: 192.168.100.71
+    #rahbia:
+    #ansible_host: 192.168.100.71
     rahbia-server-test1:
       ansible_host: 192.168.100.72
       #ansible_python_interpreter: /usr/bin/python3.12
