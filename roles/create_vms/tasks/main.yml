@@ -1,0 +1,24 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for vms_management
+- name: setup vms
+  import_tasks: create_vms.yml
+  tags:
+    - create_vms
+    - vm_setup
+    - vms_management
+
+- name: Add ssh config
+  import_tasks: ssh_config_add.yml
+  tags:
+    - create_vms
+    - vm_setup
+    - create_ssh_config
+    - vms_management
+
+- name: change disk partotioning
+  import_tasks: lvm_resize.yml
+  tags:
+    - resize_lvm
+    - vm_setup
+    - vms_management

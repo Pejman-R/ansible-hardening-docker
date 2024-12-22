@@ -4,11 +4,11 @@
     echo: True
   register: confirm_delete
   run_once: True
+
 - name: Install multi python packages
   ansible.builtin.pip:
     name:
     - pyvmomi
-
   delegate_to: localhost
   run_once: true
   when: confirm_delete.user_input == 'Yes'

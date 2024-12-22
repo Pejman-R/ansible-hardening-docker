@@ -13,6 +13,7 @@ myhosts:
       memory_size: 8192
       cpu_size: 4
       ip_address: 192.168.100.72
+      vm_folder: RahBia-Live-Coding
       ssh_jump: ssh -W %h:%p -q labe-amoo
     rahbia-server-test2:
       ansible_host: 192.168.100.73
@@ -22,3 +23,5 @@ myhosts:
       memory_size: 8192
       cpu_size: 4
       ip_address: 192.168.100.73
+      vm_folder: RahBia-Live-Coding
+      ssh_jump: ssh -W %h:%p -q labe-amoo
