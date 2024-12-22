@@ -1,0 +1,15 @@
+---
+# defaults file for vms_management
+dc_name: Training
+esxi_hostname: 192.168.100.100
+vm_folder: RahBia-Live-Coding
+vm_template: RahBia-Template
+network_name: VM Network
+subnet_mask: 255.255.255.0
+gateway_address: 192.168.100.1
+dns_server1: 8.8.8.8
+dns_server2: 1.1.1.1
+
+
+
+
