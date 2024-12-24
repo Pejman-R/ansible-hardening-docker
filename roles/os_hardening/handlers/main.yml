@@ -28,7 +28,7 @@
     state: remounted
   loop: "{{ mountpoints_changed }}"
 
-- name: Restart iptables via systemd
+- name: Restart iptables
   ansible.builtin.systemd:
     name: iptables.service
     state: restarted
