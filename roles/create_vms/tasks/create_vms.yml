@@ -72,3 +72,8 @@
       enabled: true
       start_delay: 10
   delegate_to: localhost
+
+- name: Install iptables if not installed
+  ansible.builtin.package:
+    name: iptable
+    state: present
