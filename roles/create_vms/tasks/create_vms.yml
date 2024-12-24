@@ -75,5 +75,5 @@
 
 - name: Install iptables if not installed
   ansible.builtin.package:
-    name: iptable
+    name: iptables
     state: present
