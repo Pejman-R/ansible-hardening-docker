@@ -3,19 +3,19 @@
   ansible.builtin.setup:
   when: not ansible_facts
   tags:
-    - always
+  - always
 
 - name: Fetch OS dependent variables
   ansible.builtin.include_vars:
     file: "{{ item }}"
     name: os_vars
   with_first_found:
-    - files:
-        - "{{ ansible_facts.distribution }}_{{ ansible_facts.distribution_major_version }}.yml"
-        - "{{ ansible_facts.distribution }}.yml"
-        - "{{ ansible_facts.os_family }}_{{ ansible_facts.distribution_major_version }}.yml"
-        - "{{ ansible_facts.os_family }}.yml"
-      skip: true
+  - files:
+    - "{{ ansible_facts.distribution }}_{{ ansible_facts.distribution_major_version }}.yml"
+    - "{{ ansible_facts.distribution }}.yml"
+    - "{{ ansible_facts.os_family }}_{{ ansible_facts.distribution_major_version }}.yml"
+    - "{{ ansible_facts.os_family }}.yml"
+    skip: true
   tags: always
 
 # we only override variables with our default, if they have not been specified already
@@ -27,6 +27,11 @@
   when: not lookup('varnames', '^' + item.key + '$')
   with_dict: "{{ os_vars }}"
   tags: always
+
+- name: Import tasks for iptables
+  ansible.builtin.import_tasks: iptables.yml
+  tags: iptables
+  when: os_iptables_enabled | bool
 
 - name: Import tasks for auditd
   ansible.builtin.import_tasks: auditd.yml
@@ -107,19 +112,19 @@
   ansible.builtin.import_tasks: yum.yml
   tags: yum
   when:
-    - ansible_facts.os_family == 'RedHat'
-    - os_yum_enabled | bool
+  - ansible_facts.os_family == 'RedHat'
+  - os_yum_enabled | bool
 
 - name: Import tasks to configure apt
   ansible.builtin.import_tasks: apt.yml
   tags: apt
   when:
-    - ansible_facts.os_family == 'Debian'
-    - os_apt_enabled | bool
+  - ansible_facts.os_family == 'Debian'
+  - os_apt_enabled | bool
 
 - name: Import tasks to configure selinux
   ansible.builtin.import_tasks: selinux.yml
   tags: selinux
   when:
-    - ansible_facts.selinux.status == 'enabled'
-    - os_selinux_enabled | bool
+  - ansible_facts.selinux.status == 'enabled'
+  - os_selinux_enabled | bool
