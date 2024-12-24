@@ -12,7 +12,7 @@
 {% endif %}
 
 #### Rules for ssh 
--A INPUT -p tcp -m tcp --dport {{ port }} -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -m tcp --dport {{ ansible_port }} -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
 #### Rules for tcp port
 {% if iptables.tcp_port is defined %}
