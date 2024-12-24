@@ -3,38 +3,27 @@
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
 -A INPUT -I lo -j ACCEPT
-
-#### General rule input for Network Interface Connection
 {% if iptables.nic_access is defined %}
 {% for nic in iptables.nic_access %}
-  -A INPUT -i {{ nic }} -j ACCEPT
+-A INPUT -i {{ nic }} -j ACCEPT
 {% endfor %}
 {% endif %}
-
-#### Rules for ssh 
 -A INPUT -p tcp -m tcp --dport {{ ansible_port }} -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-
-#### Rules for tcp port
 {% if iptables.tcp_port is defined %}
 {% for port in iptables.tcp_port %}
-  -A INPUT -p tcp -m tcp --dport {{ port }} -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -m tcp --dport {{ port }} -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 {% endfor %}
 {% endif %}
-
-#### rules for udp
 {% if iptables.udp_port is defined %}
 {% for uport in iptables.udp_port %}
-  -A INPUT -p udp -m udp --dport {{ uport }} -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+-A INPUT -p udp -m udp --dport {{ uport }} -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 {% endfor %}
 {% endif %}
-
-#### Rules for IP Range
 {% if iptables.ip_access is defined %}
 {% for ips in iptables.ip_access %}
-  -A INPUT -s {{ ips }} -j ACCEPT
+-A INPUT -s {{ ips }} -j ACCEPT
 {% endfor %}
-{% endif %}
-#### Rules For 
+{% endif %} 
 -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 -A INPUT -j DROP
 -A OUTPUT -j ACCEPT
