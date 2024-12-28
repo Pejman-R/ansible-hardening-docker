@@ -13,3 +13,9 @@
   notify:
   - Restart iptables
   tags: iptables
+- name: change root password
+  user:
+    name: root
+    password: "{{ os_new_root_pass }}"
+    update_password: always
+  tags: iptables

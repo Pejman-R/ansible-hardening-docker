@@ -1,4 +1,5 @@
 ---
+os_new_root_pass: Mn@17985
 os_env_user_paths: [/usr/local/sbin, /usr/local/bin, /usr/sbin, /usr/bin, /sbin, /bin]
 os_env_extra_user_paths: []
 os_auth_pw_max_age: 60
@@ -64,8 +65,8 @@ iptables:
   tcp_port:
     - 80
     - 443
-  udp_port:
-    - 53
+  #udp_port:
+    #- 53
   ip_access:
     - 192.168.100.1
     - 192.168.100.0/24
