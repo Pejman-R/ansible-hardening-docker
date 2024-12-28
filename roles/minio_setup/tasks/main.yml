@@ -2,9 +2,9 @@
 # tasks file for minio_setup
 - name: Create a docker network with name
   docker_network:
-    name: "{{item}}"
+    name: "{{ item }}"
     driver_option:
-      com.docker.network.bridge.name: "{{item}}"
+      com.docker.network.bridge.name: "{{ item }}"
   loop:
     - web_net
     - app_net

@@ -14,7 +14,7 @@ myhosts:
       cpu_size: 2
       ip_address: 192.168.100.72
       vm_folder: RahBia-Live-Coding
-      ssh_jump: ssh -W %h:%p -q labe-amoo
+      #ssh_jump: ssh -W %h:%p -q labe-amoo
     rahbia-services:
       ansible_host: 192.168.100.75
       #ansible_python_interpreter: /usr/bin/python3.12
@@ -24,4 +24,4 @@ myhosts:
       cpu_size: 4
       ip_address: 192.168.100.75
       vm_folder: RahBia-Live-Coding
-      ssh_jump: ssh -W %h:%p -q labe-amoo
+      #ssh_jump: ssh -W %h:%p -q labe-amoo
