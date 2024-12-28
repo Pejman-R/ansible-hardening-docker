@@ -11,17 +11,17 @@ myhosts:
       disk_size: 50
       datastore_name: HDD
       memory_size: 8192
-      cpu_size: 4
+      cpu_size: 2
       ip_address: 192.168.100.72
       vm_folder: RahBia-Live-Coding
       ssh_jump: ssh -W %h:%p -q labe-amoo
-    rahbia-server-test2:
-      ansible_host: 192.168.100.73
+    rahbia-services:
+      ansible_host: 192.168.100.75
       #ansible_python_interpreter: /usr/bin/python3.12
-      disk_size: 50
+      disk_size: 100
       datastore_name: HDD
       memory_size: 8192
       cpu_size: 4
-      ip_address: 192.168.100.73
+      ip_address: 192.168.100.75
       vm_folder: RahBia-Live-Coding
       ssh_jump: ssh -W %h:%p -q labe-amoo

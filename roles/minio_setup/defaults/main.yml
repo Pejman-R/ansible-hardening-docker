@@ -1,3 +1,4 @@
 #SPDX-License-Identifier: MIT-0
 ---
-# defaults file for minio_setup
+project_dir: /opt/services
+minio_dir: "{{project_dir}}/minio"
