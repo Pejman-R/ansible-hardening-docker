@@ -3,15 +3,15 @@
 - name: Create a docker network with name
   docker_network:
     name: "{{ item }}"
-    driver_option:
+    driver_options:
       com.docker.network.bridge.name: "{{ item }}"
   loop:
     - web_net
     - app_net
   tags:
     - preparing
-    - minio
     - docker
+
 - name: Creates directory
   ansible.builtin.file:
     path: "{{ minio_dir }}"
